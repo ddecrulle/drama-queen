@@ -16,6 +16,7 @@
     "serve:drama-queen": "lerna run serve --scope 'drama-queen'",
     "serve:queen": "lerna run serve --scope 'queen'",
     "serve:queen-v2": "lerna run serve --scope 'queen-v2'",
+    "serve:both_queen": "lerna run serve --scope '{queen,queen-v2}'",
     "dev:drama-queen": "lerna run dev --scope 'drama-queen'",
     "dev:queen": "lerna run dev --scope 'queen'",
     "dev:queen-v2": "lerna run dev --scope 'queen-v2'",
