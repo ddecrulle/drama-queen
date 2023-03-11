@@ -1,22 +1,30 @@
 {
-  "name": "drama-queen",
+  "name": "drama-queen-container",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "workspaces": [
+    "drama-queen",
+    "queen",
+    "queen-v2"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "build": "lerna run build",
+    "serve": "lerna run --parallel preview",
+    "build:drama-queen": "lerna run build --scope 'drama-queen'",
+    "build:queen": "lerna run build --scope 'queen'",
+    "build:queen-v2": "lerna run build --scope 'queen-v2'",
+    "serve:drama-queen": "lerna run serve --scope 'drama-queen'",
+    "serve:queen": "lerna run serve --scope 'queen'",
+    "serve:queen-v2": "lerna run serve --scope 'queen-v2'",
+    "dev:drama-queen": "lerna run dev --scope 'drama-queen'",
+    "dev:queen": "lerna run dev --scope 'queen'",
+    "dev:queen-v2": "lerna run dev --scope 'queen-v2'",
+    "stop": "kill-port --port 5000,5001,5002"
   },
   "devDependencies": {
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@vitejs/plugin-react": "^3.1.0",
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "@originjs/vite-plugin-federation": "^1.2.1",
+    "kill-port": "^2.0.1",
+    "lerna": "^6.5.1",
+    "vite-tsconfig-paths": "^4.0.5"
   }
 }
