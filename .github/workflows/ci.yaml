@@ -47,7 +47,7 @@ jobs:
         with:
           context: drama-queen
           push: true
-          tags: latest
+          tags: ddecrulle/drama-queen:latest
           file: Dockerfile
       # Queen Image
       - uses: actions/download-artifact@v3
@@ -59,7 +59,7 @@ jobs:
         with:
           context: queen
           push: true
-          tags: queen-drama
+          tags: ddecrulle/queen:queen-drama
           file: Dockerfile
       # Queen V2 Image
       - uses: actions/download-artifact@v3
@@ -71,5 +71,5 @@ jobs:
         with:
           context: queen-v2
           push: true
-          tags: queen-v2-drama
+          tags: ddecrulle/queen:queen-v2-drama
           file: Dockerfile
