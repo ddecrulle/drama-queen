@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
         remotes: {
           queen: getEnvVar("VITE_QUEEN_URL") + "/assets/remoteEntryQueen.js",
           queen_v2:
-            getEnvVar("VITE_QUEEN_V2_URL") + +"/assets/remoteEntryQueenV2.js",
+            getEnvVar("VITE_QUEEN_V2_URL") +"/assets/remoteEntryQueenV2.js",
         },
         shared: ["react", "react-dom"],
       }),
