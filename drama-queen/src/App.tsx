@@ -29,8 +29,8 @@ function App() {
       </p>
       <p className="read-the-docs">
         <ul>
-          <li>Queen URL : {import.meta.env.VITE_QUEEN_URL}</li>
-          <li>Queen V2 URL : {import.meta.env.VITE_QUEEN_V2_URL}</li>
+          <li>Queen URL : {import.meta.env.QUEEN_URL}</li>
+          <li>Queen V2 URL : {import.meta.env.QUEEN_V2_URL}</li>
         </ul>
       </p>
     </div>
