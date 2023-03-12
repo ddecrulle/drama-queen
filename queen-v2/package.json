@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 5002 --strictPort",
-    "build": "tsc && vite build",
+    "build": "tsc && yarn generate-entrypoint && vite build",
     "preview": "vite preview --port 5002 --strictPort",
-    "serve": "vite preview --port 5002 --strictPort"
+    "serve": "vite preview --port 5002 --strictPort",
+    "generate-entrypoint": "node scripts/generate-entrypoint.js"
   },
   "dependencies": {
     "react": "^18.2.0",
