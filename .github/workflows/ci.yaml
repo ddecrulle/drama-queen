@@ -45,7 +45,7 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ddecrulle/drama-queen:latest
+          tags: latest
       # Queen Image
       - uses: actions/download-artifact@v3
         with:
@@ -55,7 +55,7 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ddecrulle/queen:queen-drama
+          tags: queen-drama
       # Queen V2 Image
       - uses: actions/download-artifact@v3
         with:
@@ -65,4 +65,4 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ddecrulle/drama-queen:queen-v2-drama
+          tags: queen-v2-drama
