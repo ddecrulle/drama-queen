@@ -38,38 +38,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       # Drama Image
-      - uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: drama-queen/dist
-      - run: tar -cvf build.tar ./drama-queen/dist
       - uses: docker/build-push-action@v4
         with:
-          context: drama-queen
+          context: "{{defaultContext}}:drama-queen"
           push: true
           tags: ddecrulle/drama-queen:latest
           file: Dockerfile
       # Queen Image
-      - uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: queen/dist
-      - run: tar -cvf build.tar ./queen/dist
       - uses: docker/build-push-action@v4
         with:
-          context: queen
+          context: "{{defaultContext}}:queen"
           push: true
           tags: ddecrulle/queen:queen-drama
           file: Dockerfile
       # Queen V2 Image
-      - uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: queen-v2/dist
-      - run: tar -cvf build.tar ./queen-v2/dist
       - uses: docker/build-push-action@v4
         with:
-          context: queen-v2
+          context: "{{defaultContext}}:queen-v2"
           push: true
           tags: ddecrulle/queen-v2:queen-v2-drama
           file: Dockerfile
