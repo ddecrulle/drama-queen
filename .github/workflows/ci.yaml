@@ -46,7 +46,7 @@ jobs:
         run: ls
       - uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:drama-queen"
+          context: "./drama-queen"
           push: true
           tags: ddecrulle/drama-queen:latest
           file: Dockerfile
@@ -57,7 +57,7 @@ jobs:
           path: queen
       - uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:queen"
+          context: "./queen"
           push: true
           tags: ddecrulle/queen:queen-drama
           file: Dockerfile
@@ -68,7 +68,7 @@ jobs:
           path: queen-v2
       - uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:queen-v2"
+          context: "./queen-v2"
           push: true
           tags: ddecrulle/queen-v2:queen-v2-drama
           file: Dockerfile
