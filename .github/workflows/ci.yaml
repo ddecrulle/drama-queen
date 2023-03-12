@@ -42,6 +42,8 @@ jobs:
         with:
           name: build
           path: drama-queen
+      - name: Echo
+        run: ls
       - uses: docker/build-push-action@v4
         with:
           context: "{{defaultContext}}:drama-queen"
@@ -52,7 +54,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: build
-          path: drama-queen
+          path: queen
       - uses: docker/build-push-action@v4
         with:
           context: "{{defaultContext}}:queen"
@@ -63,7 +65,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: build
-          path: drama-queen
+          path: queen-v2
       - uses: docker/build-push-action@v4
         with:
           context: "{{defaultContext}}:queen-v2"
