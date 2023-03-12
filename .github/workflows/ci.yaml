@@ -71,5 +71,5 @@ jobs:
         with:
           context: queen-v2
           push: true
-          tags: ddecrulle/queen:queen-v2-drama
+          tags: ddecrulle/queen-v2:queen-v2-drama
           file: Dockerfile
