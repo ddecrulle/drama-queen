@@ -7,7 +7,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
-    output: { publicPath: "auto" },
+    // output: { publicPath: "auto" },
     plugins: [
       react(),
       federation({
