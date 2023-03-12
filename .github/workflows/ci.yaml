@@ -42,29 +42,34 @@ jobs:
         with:
           name: build
           path: drama-queen/dist
-      - run: echo ls
       - run: tar -cvf build.tar ./drama-queen/dist
       - uses: docker/build-push-action@v4
         with:
+          context: drama-queen
           push: true
           tags: latest
+          file: Dockerfile
       # Queen Image
       - uses: actions/download-artifact@v3
         with:
           name: build
           path: queen/dist
-      - run: tar -cvf build.tar ./build
+      - run: tar -cvf build.tar ./queen/dist
       - uses: docker/build-push-action@v4
         with:
+          context: queen
           push: true
           tags: queen-drama
+          file: Dockerfile
       # Queen V2 Image
       - uses: actions/download-artifact@v3
         with:
           name: build
           path: queen/dist
-      - run: tar -cvf build.tar ./build
+      - run: tar -cvf build.tar ./queen-v2/dist
       - uses: docker/build-push-action@v4
         with:
+          context: queen-v2
           push: true
           tags: queen-v2-drama
+          file: Dockerfile
