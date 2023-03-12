@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { Link } from 'react-router-dom'
+import { getEnvVar } from './utils/env'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,7 +34,7 @@ function App() {
           Queen MFE
         </button>
       </Link>
-      <a href={import.meta.env['VITE_QUEEN_URL']} target="_blank">
+      <a href={getEnvVar("VITE_QUEEN_URL")} target="_blank">
         <button >
           Queen Standalone
         </button>
@@ -45,15 +46,15 @@ function App() {
         </button>
       </Link>
 
-      <a href={import.meta.env['VITE_QUEEN_V2_URL']} target="_blank">
+      <a href={getEnvVar('VITE_QUEEN_V2_URL')} target="_blank">
         <button >
           Queen V2 Standalone
         </button>
       </a>
 
       <p className="read-the-docs">
-        Queen URL : {import.meta.env['VITE_QUEEN_URL']}<br />
-        Queen V2 URL : {import.meta.env['VITE_QUEEN_V2_URL']}
+        Queen URL : {getEnvVar("VITE_QUEEN_URL")}<br />
+        Queen V2 URL : {getEnvVar('VITE_QUEEN_V2_URL')}
       </p>
     </div >
   )
