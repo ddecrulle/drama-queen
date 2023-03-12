@@ -43,13 +43,12 @@ jobs:
           name: build
           path: drama-queen
       - name: Echo
-        run: ls
+        run: cd drama-queen/ && ls -lf
       - uses: docker/build-push-action@v4
         with:
           context: ./drama-queen
           push: true
           tags: ddecrulle/drama-queen:latest
-          file: ./drama-queen/Dockerfile
       # Queen Image
       - uses: actions/download-artifact@v3
         with:
@@ -60,7 +59,6 @@ jobs:
           context: ./queen
           push: true
           tags: ddecrulle/queen:queen-drama
-          file: ./queen/Dockerfile
       # Queen V2 Image
       - uses: actions/download-artifact@v3
         with:
@@ -71,4 +69,3 @@ jobs:
           context: ./queen-v2
           push: true
           tags: ddecrulle/queen-v2:queen-v2-drama
-          file: ./queen-v2/Dockerfile
