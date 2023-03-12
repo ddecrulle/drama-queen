@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { Link } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,15 +26,36 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the Buttons to test MFE
       </p>
+      <Link to="queen">
+        <button>
+          Queen MFE
+        </button>
+      </Link>
+      <a href={import.meta.env['VITE_QUEEN_URL']} target="_blank">
+        <button >
+          Queen Standalone
+        </button>
+      </a>
+
+      <Link to="queen-v2">
+        <button>
+          Queen V2 MFE
+        </button>
+      </Link>
+
+      <a href={import.meta.env['VITE_QUEEN_V2_URL']} target="_blank">
+        <button >
+          Queen V2 Standalone
+        </button>
+      </a>
+
       <p className="read-the-docs">
-        <ul>
-          <li>Queen URL : {import.meta.env.QUEEN_URL}</li>
-          <li>Queen V2 URL : {import.meta.env.QUEEN_V2_URL}</li>
-        </ul>
+        Queen URL : {import.meta.env['VITE_QUEEN_URL']}<br />
+        Queen V2 URL : {import.meta.env['VITE_QUEEN_V2_URL']}
       </p>
-    </div>
+    </div >
   )
 }
 
