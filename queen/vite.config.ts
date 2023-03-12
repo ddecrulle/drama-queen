@@ -7,11 +7,12 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
+    output: { publicPath: "auto" },
     plugins: [
       react(),
       federation({
         name: "queen",
-        filename: "remoteEntry.js",
+        filename: "remoteEntryQueen.js",
         exposes: {
           "./App": "./src/App.tsx",
         },
