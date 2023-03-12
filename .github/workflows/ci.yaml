@@ -25,6 +25,7 @@ jobs:
             queen-v2/dist
   docker:
     needs: build
+    environment: Main
     if: |
       github.event_name == 'push'
     runs-on: ubuntu-latest
