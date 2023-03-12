@@ -14,8 +14,14 @@ export default defineConfig(({ command, mode }) => {
       federation({
         name: "drama-queen",
         remotes: {
-          queen: env.VITE_QUEEN_URL + "/assets/remoteEntryQueen.js",
-          queen_v2: env.VITE_QUEEN_V2_URL + "/assets/remoteEntryQueenV2.js",
+          queen:
+            env.VITE_QUEEN_URL ||
+            (window as any)?._env_?.["VITE_QUEEN_URL"] +
+              "/assets/remoteEntryQueen.js",
+          queen_v2:
+            env.VITE_QUEEN_V2_URL ||
+            (window as any)?._env_?.["VITE_QUEEN_V2_URL"] +
+              "/assets/remoteEntryQueenV2.js",
         },
         shared: ["react", "react-dom"],
       }),
