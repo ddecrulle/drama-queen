@@ -46,17 +46,20 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: drama-dist
+          path: drama-queen/dist
       - name: Echo
-        run: cd drama-queen/ && ls -lf
+        run: cd drama-queen/ && ls -R
       - uses: docker/build-push-action@v4
         with:
-          context: ./drama-queen
+          context: drama-queen
           push: true
           tags: ddecrulle/drama-queen:latest
       # Queen Image
       - uses: actions/download-artifact@v3
         with:
           name: queen-dist
+          path: queen/dist
+
       - uses: docker/build-push-action@v4
         with:
           context: ./queen
@@ -66,6 +69,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: queen-v2-dist
+          path: queen-v2/dist
       - uses: docker/build-push-action@v4
         with:
           context: ./queen-v2
