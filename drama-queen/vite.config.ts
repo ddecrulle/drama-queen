@@ -7,6 +7,11 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
+    server: {
+      proxy: {
+        "/queen": { target: env.VITE_QUEEN_URL },
+      },
+    },
     plugins: [
       react(),
       federation({
