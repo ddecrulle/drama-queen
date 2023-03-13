@@ -1,26 +1,32 @@
 import { defineConfig, loadEnv } from "vite";
 import federation from "@originjs/vite-plugin-federation";
+import fs from "fs";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  const getEnvVar = (key: string) => {
-    if (typeof window !== "undefined") {
-      return env[key] || (!window as any)?._env_?.[key];
-    }
-    return env[key];
-  };
+  const getEnvVar = (key: string) =>
+    env[key] ??
+    fs.readFile("public/env-config.js", "utf-8", function (err, data) {
+      try {
+        const match = data.match(/\s*window\._env_\[\\]\s*=\s*\"(.*)\"\s*;$/dm);
+        return match[1];
+      } catch (err) {
+        return undefined;
+      }
+    });
+
   return {
     plugins: [
       react(),
       federation({
         name: "drama-queen",
         remotes: {
-          queen: getEnvVar("VITE_QUEEN_URL") + "/assets/remoteEntryQueen.js",
           queen_v2:
-            getEnvVar("VITE_QUEEN_V2_URL") +"/assets/remoteEntryQueenV2.js",
+            getEnvVar("VITE_QUEEN_V2_URL") + "/assets/remoteEntryQueenV2.js",
+          "queen-app": getEnvVar("VITE_QUEEN_CRA_URL") + "/entry.js",
         },
         shared: ["react", "react-dom"],
       }),

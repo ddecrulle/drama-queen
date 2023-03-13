@@ -20,14 +20,14 @@ jobs:
         with:
           name: drama-dist
           path: drama-queen/dist
-      - uses: actions/upload-artifact@v3
-        with:
-          name: queen-dist
-          path: queen/dist
-      - uses: actions/upload-artifact@v3
-        with:
-          name: queen-v2-dist
-          path: queen-v2/dist
+      # - uses: actions/upload-artifact@v3
+      #   with:
+      #     name: queen-dist
+      #     path: queen/dist
+      # - uses: actions/upload-artifact@v3
+      #   with:
+      #     name: queen-v2-dist
+      #     path: queen-v2/dist
   docker:
     needs: build
     environment: Main
@@ -53,25 +53,25 @@ jobs:
         with:
           context: drama-queen
           push: true
-          tags: ddecrulle/drama-queen:latest
-      # Queen Image
-      - uses: actions/download-artifact@v3
-        with:
-          name: queen-dist
-          path: queen/dist
+          tags: ddecrulle/drama-queen:cra-queen
+      # # Queen Image
+      # - uses: actions/download-artifact@v3
+      #   with:
+      #     name: queen-dist
+      #     path: queen/dist
 
-      - uses: docker/build-push-action@v4
-        with:
-          context: ./queen
-          push: true
-          tags: ddecrulle/queen:queen-drama
-      # Queen V2 Image
-      - uses: actions/download-artifact@v3
-        with:
-          name: queen-v2-dist
-          path: queen-v2/dist
-      - uses: docker/build-push-action@v4
-        with:
-          context: ./queen-v2
-          push: true
-          tags: ddecrulle/queen-v2:queen-v2-drama
+      # - uses: docker/build-push-action@v4
+      #   with:
+      #     context: ./queen
+      #     push: true
+      #     tags: ddecrulle/queen:queen-drama
+      # # Queen V2 Image
+      # - uses: actions/download-artifact@v3
+      #   with:
+      #     name: queen-v2-dist
+      #     path: queen-v2/dist
+      # - uses: docker/build-push-action@v4
+      #   with:
+      #     context: ./queen-v2
+      #     push: true
+      #     tags: ddecrulle/queen-v2:queen-v2-drama

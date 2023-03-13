@@ -3,10 +3,8 @@ import {
 } from "react-router-dom";
 import DramaQueen from "../App";
 import React from "react";
-//import QueenApp from "queen/App";
-//import App from "queen_v2/App";
+import QueenContainer from "../queenLegacyComponents/queenContainer";
 
-const QueenApp = React.lazy(() => import('queen/App'))
 const App = React.lazy(() => import('queen_v2/App'))
 
 export const router = createBrowserRouter([
@@ -16,10 +14,10 @@ export const router = createBrowserRouter([
   },
   {
     path: "/queen",
-    element: <QueenApp />
+    element: <QueenContainer />
   },
   {
     path: "/queen-v2",
     element: <App />
-  }
+  },
 ])
