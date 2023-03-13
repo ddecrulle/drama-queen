@@ -11,7 +11,7 @@ export default defineConfig(({ command, mode }) => {
     env[key] ??
     fs.readFile("public/env-config.js", "utf-8", function (err, data) {
       try {
-        const match = data.match(/\s*window\._env_\[\\]\s*=\s*\"(.*)\"\s*;$/dm);
+        const match = data.match(/\s*window\._env_\[\\]\s*=\s*\'(.*)\'\s*;$/dm);
         return match[1];
       } catch (err) {
         return undefined;
