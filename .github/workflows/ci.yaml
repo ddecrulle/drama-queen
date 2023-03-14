@@ -45,7 +45,7 @@ jobs:
       # Drama Image
       - uses: actions/download-artifact@v3
         with:
-          name: drama-dist
+          name: drama
           path: drama-queen/dist
       - name: Echo
         run: cd drama-queen/ && ls -R
@@ -57,7 +57,7 @@ jobs:
       # # Queen Image
       # - uses: actions/download-artifact@v3
       #   with:
-      #     name: queen-dist
+      #     name: queen
       #     path: queen/dist
 
       # - uses: docker/build-push-action@v4
@@ -68,7 +68,7 @@ jobs:
       # # Queen V2 Image
       # - uses: actions/download-artifact@v3
       #   with:
-      #     name: queen-v2-dist
+      #     name: queen-v2
       #     path: queen-v2/dist
       # - uses: docker/build-push-action@v4
       #   with:

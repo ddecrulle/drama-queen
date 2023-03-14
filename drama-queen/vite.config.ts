@@ -14,14 +14,18 @@ export default defineConfig(({ command, mode }) => {
         name: "drama-queen",
         remotes: {
           queen: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_URL"] || env["VITE_QUEEN_URL"]) + "/entry.js")`,
+            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_URL"] || import.meta.env["VITE_QUEEN_URL"]) + "/entry.js")`,
             externalType: "promise",
           },
           queen_v2: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || env["VITE_QUEEN_V2_URL"]) + "/assets/remoteEntry.js")`,
+            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || import.meta.env["VITE_QUEEN_V2_URL"]) + "/assets/remoteEntry.js")`,
             externalType: "promise",
           },
         },
+        // filename: "remoteEntry.js",
+        // exposes: {
+        //   "./App": "./src/App.tsx",
+        // },
         shared: ["react", "react-dom"],
       }),
       tsconfigPaths(),
