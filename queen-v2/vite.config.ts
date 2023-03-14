@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     federation({
       name: "queen_v2",
-      filename: "remoteEntryQueenV2.js",
+      filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App.tsx",
       },
