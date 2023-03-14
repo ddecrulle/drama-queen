@@ -11,7 +11,7 @@ export default defineConfig(({ command, mode }) => {
       react(),
       federation({
         name: "queen",
-        filename: "remoteEntryQueen.js",
+        filename: "remoteEntry.js",
         exposes: {
           "./App": "./src/App.tsx",
         },

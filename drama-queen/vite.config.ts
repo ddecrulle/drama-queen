@@ -14,11 +14,11 @@ export default defineConfig(({ command, mode }) => {
         name: "drama-queen",
         remotes: {
           queen: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_URL"] || env["VITE_QUEEN_URL"]) + "/assets/remoteEntryQueen.js")`,
+            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_URL"] || env["VITE_QUEEN_URL"]) + "/assets/remoteEntry.js")`,
             externalType: "promise",
           },
           queen_v2: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || env["VITE_QUEEN_V2_URL"]) + "/assets/remoteEntryQueenV2.js")`,
+            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || env["VITE_QUEEN_V2_URL"]) + "/assets/remoteEntry.js")`,
             externalType: "promise",
           },
         },
