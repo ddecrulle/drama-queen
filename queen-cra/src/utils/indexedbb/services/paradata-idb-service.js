@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import AbstractIdbService from './abstract-idb-service';
 
 class ParadataIdbService extends AbstractIdbService {
