@@ -1,4 +1,3 @@
-//var fs = require("fs");
 import fs from "fs";
 
 fs.readFile(".env", "utf8", function (_, contents) {
