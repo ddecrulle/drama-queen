@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     element: <DramaQueen />
   },
   {
-    path: "/queen",
+    path: "/queen/*",
     element: <QueenContainer />
   },
   {

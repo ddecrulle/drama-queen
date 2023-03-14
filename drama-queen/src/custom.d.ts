@@ -1,6 +1,5 @@
 declare module "queen_v2/*";
-declare module "queen-app";
-declare module "queen-app/*";
+declare module "queen";
 
 declare namespace JSX {
   interface IntrinsicElements {

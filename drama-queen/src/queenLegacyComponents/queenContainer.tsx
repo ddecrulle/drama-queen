@@ -1,10 +1,9 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import { getEnvVar } from '../utils/env';
 
 
 export function QueenContainer() {
-  const QueenApp = React.lazy(() => import('queen-app/index.js'))
-  console.log(QueenApp);
+  React.lazy(() => import(getEnvVar('VITE_QUEEN_URL') + '/entry.js'/* @vite-ignore */))
   return (
     <>
       <queen-app />

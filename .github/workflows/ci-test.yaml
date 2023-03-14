@@ -18,7 +18,7 @@ jobs:
       - run: yarn build
       - uses: actions/upload-artifact@v3
         with:
-          name: drama-dist
+          name: drama
           path: drama-queen/dist
   docker:
     needs: build
