@@ -43,4 +43,4 @@ jobs:
         with:
           context: drama-queen
           push: true
-          tags: ddecrulle/drama-queen:latest
+          tags: ddecrulle/drama-queen:cra-queen
