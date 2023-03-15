@@ -18,8 +18,16 @@ jobs:
       - run: yarn build
       - uses: actions/upload-artifact@v3
         with:
-          name: drama-dist
+          name: drama
           path: drama-queen/dist
+      - uses: actions/upload-artifact@v3
+        with:
+          name: queen-cra
+          path: queen-cra/build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: queen-v2
+          path: queen-v2/dist
   docker:
     needs: build
     environment: Main
@@ -37,10 +45,10 @@ jobs:
       # Drama Image
       - uses: actions/download-artifact@v3
         with:
-          name: drama-dist
+          name: drama
           path: drama-queen/dist
       - uses: docker/build-push-action@v4
         with:
           context: drama-queen
           push: true
-          tags: ddecrulle/drama-queen:latest
+          tags: ddecrulle/drama-queen:cra-queen
