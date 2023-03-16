@@ -1,9 +1,10 @@
 import React from 'react'
 import { getEnvVar } from '../utils/env';
 
+// Import de queen
+//const module = await import(getEnvVar('VITE_QUEEN_URL') + '/entry.js'/* @vite-ignore */);
 
 export function QueenContainer() {
-  React.lazy(() => import(getEnvVar('VITE_QUEEN_URL') + '/entry.js'/* @vite-ignore */))
   return (
     <>
       <queen-app />
