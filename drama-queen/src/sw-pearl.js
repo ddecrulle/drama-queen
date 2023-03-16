@@ -14,8 +14,8 @@ import { getEnvVar } from "./utils/env";
 //import { registerRoute } from "workbox-routing";
 //import { CacheFirst, NetworkFirst } from "workbox-strategies";
 
-self._QUEEN_URL =
-  import.meta.env["VITE_QUEEN_URL"] ?? "https://queen.demo.insee.io";
+const env = import.meta.env;
+self._QUEEN_URL = env["VITE_QUEEN_URL"] ?? "https://queen.demo.insee.io";
 importScripts(`${self._QUEEN_URL}/queen-service-worker.js`);
 
 clientsClaim();
