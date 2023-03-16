@@ -14,7 +14,8 @@ import { getEnvVar } from "./utils/env";
 //import { registerRoute } from "workbox-routing";
 //import { CacheFirst, NetworkFirst } from "workbox-strategies";
 
-self._QUEEN_URL = getEnvVar("VITE_QUEEN_URL");
+self._QUEEN_URL =
+  import.meta.env["VITE_QUEEN_URL"] ?? "https://queen.demo.insee.io";
 importScripts(`${self._QUEEN_URL}/queen-service-worker.js`);
 
 clientsClaim();
@@ -87,11 +88,7 @@ registerRoute(
 const cacheConfiguration = async () => {
   const manifest = await fetch("/manifest.json");
   const { icons } = await manifest.json();
-  const urlsToPrecache = [
-    `/keycloak.json`,
-    `/manifest.json`,
-    `/configuration.json`,
-  ].concat(icons.map(({ src }) => src));
+  const urlsToPrecache = [`/manifest.json`].concat(icons.map(({ src }) => src));
   const cache = await self.caches.open(configurationCacheName);
   await cache.addAll(urlsToPrecache);
 };
