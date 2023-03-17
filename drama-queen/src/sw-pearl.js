@@ -10,13 +10,10 @@
 //import { CacheableResponsePlugin } from "workbox-cacheable-response";
 import { clientsClaim } from "workbox-core";
 import { createHandlerBoundToURL, precacheAndRoute } from "workbox-precaching";
-import { getEnvVar } from "./utils/env";
 //import { registerRoute } from "workbox-routing";
 //import { CacheFirst, NetworkFirst } from "workbox-strategies";
 
-const env = import.meta.env;
-self._QUEEN_URL = env["VITE_QUEEN_URL"] ?? "https://queen.demo.insee.io";
-importScripts(`${self._QUEEN_URL}/queen-service-worker.js`);
+importScripts(`${ import.meta.env["VITE_QUEEN_URL"]}/queen-service-worker.js`);
 
 clientsClaim();
 
