@@ -13,7 +13,8 @@ import { createHandlerBoundToURL, precacheAndRoute } from "workbox-precaching";
 //import { registerRoute } from "workbox-routing";
 //import { CacheFirst, NetworkFirst } from "workbox-strategies";
 
-importScripts(`${ import.meta.env["VITE_QUEEN_URL"]}/queen-service-worker.js`);
+self._QUEEN_URL = import.meta.env.VITE_QUEEN_URL;
+importScripts(`${self._QUEEN_URL}/queen-service-worker.js`);
 
 clientsClaim();
 

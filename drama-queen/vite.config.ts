@@ -31,11 +31,6 @@ export default defineConfig(({ command, mode }) => {
       }),
       tsconfigPaths(),
       VitePWA({
-        /* enable sw on development */
-        devOptions: {
-          enabled: true,
-          /* other options */
-        },
         strategies: "injectManifest",
         srcDir: "src",
         filename: "sw-pearl.js",
