@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
     element: <QueenContainer />
   },
   {
-    path: "/queen-v2",
+    path: "/queen-v2/*",
     element: <App />
   },
 ])
