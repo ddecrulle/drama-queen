@@ -2,7 +2,7 @@ name: ci-test
 on:
   push:
     branches:
-      - cra-mfe
+      - pwa-test
 
 jobs:
   build:

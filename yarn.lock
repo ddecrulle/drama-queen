@@ -2269,6 +2269,14 @@
     "@rollup/pluginutils" "^3.1.0"
     magic-string "^0.25.7"
 
+"@rollup/plugin-replace@^5.0.1":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-replace/-/plugin-replace-5.0.2.tgz#45f53501b16311feded2485e98419acb8448c61d"
+  integrity sha512-M9YXNekv/C/iHHK+cvORzfRYfPbq0RDD8r0G+bMiTXjNGKulPnCT9O3Ss46WfhI6ZOCgApOP7xAdmCQJ+U2LAA==
+  dependencies:
+    "@rollup/pluginutils" "^5.0.1"
+    magic-string "^0.27.0"
+
 "@rollup/pluginutils@^3.0.8", "@rollup/pluginutils@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
@@ -2277,6 +2285,15 @@
     "@types/estree" "0.0.39"
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
+
+"@rollup/pluginutils@^5.0.1":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.0.2.tgz#012b8f53c71e4f6f9cb317e311df1404f56e7a33"
+  integrity sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==
+  dependencies:
+    "@types/estree" "^1.0.0"
+    estree-walker "^2.0.2"
+    picomatch "^2.3.1"
 
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.3"
@@ -5582,7 +5599,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0:
   dependencies:
     ms "2.0.0"
 
-debug@4, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.3:
+debug@4, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.3, debug@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
@@ -6731,6 +6748,11 @@ estree-walker@^1.0.1:
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-1.0.1.tgz#31bc5d612c96b704106b477e6dd5d8aa138cb700"
   integrity sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==
 
+estree-walker@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
+  integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
+
 estree-walker@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-3.0.3.tgz#67c3e549ec402a487b4fc193d1953a524752340d"
@@ -6972,7 +6994,7 @@ fast-glob@3.2.7:
     merge2 "^1.3.0"
     micromatch "^4.0.4"
 
-fast-glob@^3.1.1, fast-glob@^3.2.9:
+fast-glob@^3.1.1, fast-glob@^3.2.12, fast-glob@^3.2.9:
   version "3.2.12"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.12.tgz#7f39ec99c2e6ab030337142da9e0c18f37afae80"
   integrity sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==
@@ -12431,6 +12453,11 @@ pretty-bytes@^5.3.0:
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.6.0.tgz#356256f643804773c82f64723fe78c92c62beaeb"
   integrity sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==
 
+pretty-bytes@^6.0.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-6.1.0.tgz#1d1cc9aae1939012c74180b679da6684616bf804"
+  integrity sha512-Rk753HI8f4uivXi4ZCIYdhmG1V+WKzvRMg/X+M42a6t7D07RcmopXJMDNk6N++7Bl75URRGsb40ruvg7Hcp2wQ==
+
 pretty-error@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.2.tgz#be89f82d81b1c86ec8fdfbc385045882727f93b6"
@@ -13537,7 +13564,7 @@ rollup@^2.43.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
-rollup@^3.10.0:
+rollup@^3.10.0, rollup@^3.7.2:
   version "3.19.1"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.19.1.tgz#2b3a31ac1ff9f3afab2e523fa687fef5b0ee20fc"
   integrity sha512-lAbrdN7neYCg/8WaoWn/ckzCtz+jr70GFfYdlf50OF7387HTg+wiuiqJRFYawwSPpqfqDNYqK7smY/ks2iAudg==
@@ -15491,6 +15518,19 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
+vite-plugin-pwa@^0.14.4:
+  version "0.14.4"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.14.4.tgz#d83fae9e85ab4a082e11ab475b3ec124bfe49084"
+  integrity sha512-M7Ct0so8OlouMkTWgXnl8W1xU95glITSKIe7qswZf1tniAstO2idElGCnsrTJ5NPNSx1XqfTCOUj8j94S6FD7Q==
+  dependencies:
+    "@rollup/plugin-replace" "^5.0.1"
+    debug "^4.3.4"
+    fast-glob "^3.2.12"
+    pretty-bytes "^6.0.0"
+    rollup "^3.7.2"
+    workbox-build "^6.5.4"
+    workbox-window "^6.5.4"
+
 vite-tsconfig-paths@^4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/vite-tsconfig-paths/-/vite-tsconfig-paths-4.0.5.tgz#c7c54e2cf7ccc5e600db565cecd7b368a1fa8889"
@@ -15909,7 +15949,7 @@ workbox-build@^5.1.4:
     workbox-sw "^5.1.4"
     workbox-window "^5.1.4"
 
-workbox-build@^6.1.1:
+workbox-build@^6.1.1, workbox-build@^6.5.4:
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/workbox-build/-/workbox-build-6.5.4.tgz#7d06d31eb28a878817e1c991c05c5b93409f0389"
   integrity sha512-kgRevLXEYvUW9WS4XoziYqZ8Q9j/2ziJYEtTrjdz5/L/cTUa2XfyMP2i7c3p34lgqJ03+mTiz13SdFef2POwbA==
@@ -15959,7 +15999,7 @@ workbox-cacheable-response@6.5.4, workbox-cacheable-response@^6.1.1:
   dependencies:
     workbox-core "6.5.4"
 
-workbox-cacheable-response@^5.1.4:
+workbox-cacheable-response@^5.1.3, workbox-cacheable-response@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/workbox-cacheable-response/-/workbox-cacheable-response-5.1.4.tgz#9ff26e1366214bdd05cf5a43da9305b274078a54"
   integrity sha512-0bfvMZs0Of1S5cdswfQK0BXt6ulU5kVD4lwer2CeI+03czHprXR3V4Y8lPTooamn7eHP8Iywi5QjyAMjw0qauA==
@@ -15971,7 +16011,7 @@ workbox-core@6.5.4, workbox-core@^6.1.1:
   resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-6.5.4.tgz#df48bf44cd58bb1d1726c49b883fb1dffa24c9ba"
   integrity sha512-OXYb+m9wZm8GrORlV2vBbE5EC1FKu71GGp0H4rjmxmF4/HLbMCoTFws87M3dFwgpmg0v00K++PImpNQ6J5NQ6Q==
 
-workbox-core@^5.1.4:
+workbox-core@^5.1.3, workbox-core@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-5.1.4.tgz#8bbfb2362ecdff30e25d123c82c79ac65d9264f4"
   integrity sha512-+4iRQan/1D8I81nR2L5vcbaaFskZC2CL17TLbvWVzQ4qiF/ytOGF6XeV54pVxAvKUtkLANhk8TyIUMtiMw2oDg==
@@ -16034,7 +16074,7 @@ workbox-precaching@6.5.4, workbox-precaching@^6.1.1:
     workbox-routing "6.5.4"
     workbox-strategies "6.5.4"
 
-workbox-precaching@^5.1.4:
+workbox-precaching@^5.1.3, workbox-precaching@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/workbox-precaching/-/workbox-precaching-5.1.4.tgz#874f7ebdd750dd3e04249efae9a1b3f48285fe6b"
   integrity sha512-gCIFrBXmVQLFwvAzuGLCmkUYGVhBb7D1k/IL7pUJUO5xacjLcFUaLnnsoVepBGAiKw34HU1y/YuqvTKim9qAZA==
@@ -16074,7 +16114,7 @@ workbox-routing@6.5.4, workbox-routing@^6.1.1:
   dependencies:
     workbox-core "6.5.4"
 
-workbox-routing@^5.1.4:
+workbox-routing@^5.1.3, workbox-routing@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/workbox-routing/-/workbox-routing-5.1.4.tgz#3e8cd86bd3b6573488d1a2ce7385e547b547e970"
   integrity sha512-8ljknRfqE1vEQtnMtzfksL+UXO822jJlHTIR7+BtJuxQ17+WPZfsHqvk1ynR/v0EHik4x2+826Hkwpgh4GKDCw==
@@ -16088,7 +16128,7 @@ workbox-strategies@6.5.4, workbox-strategies@^6.1.1:
   dependencies:
     workbox-core "6.5.4"
 
-workbox-strategies@^5.1.4:
+workbox-strategies@^5.1.3, workbox-strategies@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/workbox-strategies/-/workbox-strategies-5.1.4.tgz#96b1418ccdfde5354612914964074d466c52d08c"
   integrity sha512-VVS57LpaJTdjW3RgZvPwX0NlhNmscR7OQ9bP+N/34cYMDzXLyA6kqWffP6QKXSkca1OFo/v6v7hW7zrrguo6EA==
@@ -16134,7 +16174,7 @@ workbox-webpack-plugin@5.1.4:
     webpack-sources "^1.3.0"
     workbox-build "^5.1.4"
 
-workbox-window@6.5.4:
+workbox-window@6.5.4, workbox-window@^6.5.4:
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/workbox-window/-/workbox-window-6.5.4.tgz#d991bc0a94dff3c2dbb6b84558cff155ca878e91"
   integrity sha512-HnLZJDwYBE+hpG25AQBO8RUWBJRaCsI9ksQJEp3aCOFCaG5kqaToAYXFRAHxzRluM2cQbGzdQF5rjKPWPA1fug==
