@@ -13,21 +13,20 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      #- run: yarn test
       - run: yarn
       - run: yarn build
       - uses: actions/upload-artifact@v3
         with:
           name: drama
           path: drama-queen/dist
-      # - uses: actions/upload-artifact@v3
-      #   with:
-      #     name: queen
-      #     path: queen/dist
-      # - uses: actions/upload-artifact@v3
-      #   with:
-      #     name: queen-v2
-      #     path: queen-v2/dist
+      - uses: actions/upload-artifact@v3
+        with:
+          name: queen
+          path: queen/build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: queen-v2
+          path: queen-v2/build
   docker:
     needs: build
     environment: Main

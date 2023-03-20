@@ -1,10 +1,10 @@
 {
-  "queenUrl": "http://localhost:5000",
+  "queenUrl": "https://questionnaire-enqueteurs.enquetes.developpement.insee.fr/queen",
   "_queenUrl_comment_": "Final URL of the Queen application",
 
-  "apiUrl": "http://localhost:8080",
+  "apiUrl": "https://api.questionnaire-enqueteurs.enquetes.developpement.insee.fr",
   "_apiUrl_comment_": "URL of the back-office of Queen application",
 
-  "authenticationType": "NONE",
+  "authenticationType": "OIDC",
   "_authenticationType_comment_": "The mode of authentication: 'NONE' or 'OIDC'"
 }

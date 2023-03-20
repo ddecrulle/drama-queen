@@ -17,17 +17,17 @@ const Rooter = () => {
   return (
     <Switch>
       <Route
-        path={`/queen/:${READ_ONLY}?/questionnaire/:idQ/survey-unit/:idSU`}
+        path={`/queen-v2/:${READ_ONLY}?/questionnaire/:idQ/survey-unit/:idSU`}
         component={secure(OrchestratorManager)}
       />
-      <Route path={`/queen/:${READ_ONLY}?/survey-unit/:idSU`} component={secure(QueenRedirect)} />
-      {!standalone && <Route path="/queen/synchronize" component={secure(Synchronize)} />}
-      <Route path="/queen/visualize" component={Visualizer} />
+      <Route path={`/queen-v2/:${READ_ONLY}?/survey-unit/:idSU`} component={secure(QueenRedirect)} />
+      {!standalone && <Route path="/queen-v2/synchronize" component={secure(Synchronize)} />}
+      <Route path="/queen-v2/visualize" component={Visualizer} />
       {!standalone &&
-        !pathname.startsWith('/queen/authentication') &&
-        pathname.startsWith('/queen') && <Redirect to="/queen/visualize" />}
-      {standalone && !pathname.startsWith('/queen/authentication') && (
-        <Redirect to="/queen/visualize" />
+        !pathname.startsWith('/queen-v2/authentication') &&
+        pathname.startsWith('/queen') && <Redirect to="/queen-v2/visualize" />}
+      {standalone && !pathname.startsWith('/queen-v2/authentication') && (
+        <Redirect to="/queen-v2/visualize" />
       )}
     </Switch>
   );
