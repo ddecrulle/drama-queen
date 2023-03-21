@@ -2,7 +2,7 @@ name: ci-test
 on:
   push:
     branches:
-      - pwa-test
+      - queen-v2
 
 jobs:
   build:
@@ -21,8 +21,8 @@ jobs:
           path: drama-queen/dist
       - uses: actions/upload-artifact@v3
         with:
-          name: queen-cra
-          path: queen-cra/build
+          name: queen
+          path: queen/build
       - uses: actions/upload-artifact@v3
         with:
           name: queen-v2
@@ -50,4 +50,25 @@ jobs:
         with:
           context: drama-queen
           push: true
-          tags: ddecrulle/drama-queen:cra-queen
+          tags: ddecrulle/drama-queen:queen-v2
+        # Queen Image
+      - uses: actions/download-artifact@v3
+        with:
+          name: queen
+          path: queen/dist
+
+      - uses: docker/build-push-action@v4
+        with:
+          context: ./queen
+          push: true
+          tags: ddecrulle/queen:queen-v2
+      # Queen V2 Image
+      - uses: actions/download-artifact@v3
+        with:
+          name: queen-v2
+          path: queen-v2/dist
+      - uses: docker/build-push-action@v4
+        with:
+          context: ./queen-v2
+          push: true
+          tags: ddecrulle/queen-v2:queen-v2

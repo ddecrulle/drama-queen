@@ -11,7 +11,7 @@ function publicURL() {
     if (err) {
       console.log('Error', err);
     } else {
-      const newPublicPath = "(localStorage.getItem('QUEEN_URL') || '')";
+      const newPublicPath = "(localStorage.getItem('QUEEN_V2_URL') || '')";
       const files = res;
       files.forEach(filePath => {
         if (!fs.lstatSync(filePath).isDirectory() && filePath.match(/\.(json|html|js|map)$/)) {

@@ -23,7 +23,7 @@ const queenCacheName = 'queen-cache';
 console.log('"Loading Queen SW into another SW"');
 
 registerRoute(
-  new RegExp(getQueenUrlRegexJson(self._QUEEN_URL)),
+  new RegExp(getQueenUrlRegexJson(self._QUEEN_V2_URL)),
   new NetworkFirst({
     cacheName: queenCacheName,
     plugins: [
@@ -35,7 +35,7 @@ registerRoute(
 );
 
 registerRoute(
-  new RegExp(getQueenUrlRegex(self._QUEEN_URL)),
+  new RegExp(getQueenUrlRegex(self._QUEEN_V2_URL)),
   new CacheFirst({
     cacheName: queenCacheName,
     plugins: [
@@ -84,13 +84,13 @@ registerRoute(
 const queenPrecacheController = async () => {
   const cache = await caches.open(queenCacheName);
   const urlsToPrecache = self.__WB_MANIFEST.reduce(
-    (_, { url }) => [..._, `${self._QUEEN_URL}/${url}`],
+    (_, { url }) => [..._, `${self._QUEEN_V2_URL}/${url}`],
     []
   );
   await cache.addAll(urlsToPrecache);
   cache
-    .add(`${self._QUEEN_URL}/keycloak.json`)
-    .catch(() => cache.add(`${self._QUEEN_URL}/oidc.json`))
+    .add(`${self._QUEEN_V2_URL}/keycloak.json`)
+    .catch(() => cache.add(`${self._QUEEN_V2_URL}/oidc.json`))
     .catch(() => console.error('Failed to cache auth file'));
 };
 

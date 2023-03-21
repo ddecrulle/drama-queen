@@ -13,7 +13,7 @@ class QueenApp extends HTMLElement {
 
   connectedCallback() {
     this.mountPoint = document.createElement('div');
-    this.mountPoint.setAttribute('id', 'queen-app');
+    this.mountPoint.setAttribute('id', 'queen-v2-app');
     this.mountReactApp();
   }
 
@@ -44,5 +44,5 @@ class QueenApp extends HTMLElement {
   }
 }
 
-window.customElements.define('queen-app', QueenApp);
+window.customElements.define('queen-v2-app', QueenApp);
 listenParentApp();

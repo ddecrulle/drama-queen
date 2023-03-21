@@ -19,7 +19,7 @@ export default defineConfig(({ command, mode }) => {
             externalType: "promise",
           },
           queen_v2: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || import.meta.env["VITE_QUEEN_V2_URL"]) + "/assets/remoteEntry.js")`,
+            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || import.meta.env["VITE_QUEEN_V2_URL"]) + "/entry.js")`,
             externalType: "promise",
           },
         },
