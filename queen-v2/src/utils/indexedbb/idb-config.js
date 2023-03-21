@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import Dexie from 'dexie';
 import schema from './schema.json';
 import schema2 from './schema2.json';
