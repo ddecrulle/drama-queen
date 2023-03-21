@@ -1,4 +1,4 @@
-const loadQueen = async () => {
+const loadQueenV2 = async () => {
   console.log('Loading queen');
   try {
     const queenUrl = new URL(document.currentScript.src).origin;
@@ -21,4 +21,4 @@ const loadQueen = async () => {
     console.error('Failed to load Queen as Web Component');
   }
 };
-loadQueen();
+loadQueenV2();
