@@ -20,7 +20,10 @@ const Rooter = () => {
         path={`/queen-v2/:${READ_ONLY}?/questionnaire/:idQ/survey-unit/:idSU`}
         component={secure(OrchestratorManager)}
       />
-      <Route path={`/queen-v2/:${READ_ONLY}?/survey-unit/:idSU`} component={secure(QueenRedirect)} />
+      <Route
+        path={`/queen-v2/:${READ_ONLY}?/survey-unit/:idSU`}
+        component={secure(QueenRedirect)}
+      />
       {!standalone && <Route path="/queen-v2/synchronize" component={secure(Synchronize)} />}
       <Route path="/queen-v2/visualize" component={Visualizer} />
       {!standalone &&
