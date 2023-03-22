@@ -3,7 +3,6 @@ import React, { useState, useCallback, useEffect } from 'react';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import PropTypes from 'prop-types';
 import D from 'i18n';
-import '@a11y/focus-trap';
 import { useStyles } from '../component.style';
 import { ButtonItemMenu } from 'components/designSystem';
 import {
@@ -86,43 +85,41 @@ const SequenceNavigation = ({
   const classes = useStyles();
 
   return (
-    <focus-trap>
-      <div className="content">
-        <ButtonItemMenu back autoFocus ref={listRefs[0]} onFocus={setFocus(0)} onClick={closeMenu}>
-          <span>{'\u3008'}</span>
-          {D.goBackNavigation}
-        </ButtonItemMenu>
-        <div>
-          <div className={classes.title}>{title}</div>
-          <nav role="navigation">
-            <ul>
-              {components.map((c, index) => {
-                return (
-                  <li key={c.id}>
-                    <ButtonItemMenu
-                      ref={listRefs[index + offset]}
-                      autoFocus={index === 0}
-                      selected={currentFocusElementIndex === index + offset}
-                      disabled={!c.reachable}
-                      onClick={open(c)}
-                      onFocus={setFocus(index + offset)}
-                    >
-                      {c.labelNav}
-                      <span>{`${c.components.length > 0 ? '\u3009' : ''} `}</span>
-                    </ButtonItemMenu>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-        </div>
-        <KeyboardEventHandler
-          handleKeys={keysToHandle}
-          onKeyEvent={keyboardShortcut}
-          handleFocusableElements
-        />
+    <div className="content">
+      <ButtonItemMenu back autoFocus ref={listRefs[0]} onFocus={setFocus(0)} onClick={closeMenu}>
+        <span>{'\u3008'}</span>
+        {D.goBackNavigation}
+      </ButtonItemMenu>
+      <div>
+        <div className={classes.title}>{title}</div>
+        <nav role="navigation">
+          <ul>
+            {components.map((c, index) => {
+              return (
+                <li key={c.id}>
+                  <ButtonItemMenu
+                    ref={listRefs[index + offset]}
+                    autoFocus={index === 0}
+                    selected={currentFocusElementIndex === index + offset}
+                    disabled={!c.reachable}
+                    onClick={open(c)}
+                    onFocus={setFocus(index + offset)}
+                  >
+                    {c.labelNav}
+                    <span>{`${c.components.length > 0 ? '\u3009' : ''} `}</span>
+                  </ButtonItemMenu>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
       </div>
-    </focus-trap>
+      <KeyboardEventHandler
+        handleKeys={keysToHandle}
+        onKeyEvent={keyboardShortcut}
+        handleFocusableElements
+      />
+    </div>
   );
 };
 

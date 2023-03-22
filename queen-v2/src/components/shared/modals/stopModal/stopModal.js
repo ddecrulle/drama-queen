@@ -1,5 +1,3 @@
-import '@a11y/focus-trap';
-
 import { IconButton, makeStyles } from '@material-ui/core';
 import React, { useRef } from 'react';
 import { SIMPLE_CLICK_EVENT, paradataHandler } from 'utils/events';
@@ -58,7 +56,7 @@ const StopModal = React.forwardRef(
         aria-describedby="alert-dialog-slide-description"
         container={() => ref.current}
       >
-        <focus-trap>
+        <>
           <DialogTitle id="alert-dialog-slide-title">
             {stopTitle}
 
@@ -77,7 +75,7 @@ const StopModal = React.forwardRef(
             </Button>
             <Button onClick={close}>{D.cancelButton}</Button>
           </DialogActions>
-        </focus-trap>
+        </>
       </Dialog>
     );
   }

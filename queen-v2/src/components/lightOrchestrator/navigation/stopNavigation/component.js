@@ -1,5 +1,3 @@
-import '@a11y/focus-trap';
-
 import {
   NEXT_FOCUS,
   PREVIOUS_FOCUS,
@@ -64,7 +62,7 @@ const StopNavigation = React.forwardRef(({ close, quit, definitiveQuit, currentP
   const [definitive, setDefinitive] = useState(false);
 
   return (
-    <focus-trap>
+    <>
       <div className="content">
         <ButtonItemMenu ref={listRefs[0]} back onFocus={setFocus(0)} onClick={closeMenu}>
           <span>{'\u3008'}</span>
@@ -107,7 +105,7 @@ const StopNavigation = React.forwardRef(({ close, quit, definitiveQuit, currentP
         definitiveQuit={definitiveQuit}
         currentPage={currentPage}
       />
-    </focus-trap>
+    </>
   );
 });
 

@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import D from 'i18n';
-import '@a11y/focus-trap';
 import { ButtonItemMenu } from 'components/designSystem';
 import {
   createArrayOfRef,
@@ -62,7 +61,7 @@ const StopNavigation = React.forwardRef(({ close }, ref) => {
   const [definitive, setDefinitive] = useState(false);
 
   return (
-    <focus-trap>
+    <>
       <div className="content">
         <ButtonItemMenu ref={listRefs[0]} back onFocus={setFocus(0)} onClick={closeMenu}>
           <span>{'\u3008'}</span>
@@ -97,7 +96,7 @@ const StopNavigation = React.forwardRef(({ close }, ref) => {
         />
       </div>
       <StopModal ref={ref} open={open} setOpen={setOpen} definitive={definitive} />
-    </focus-trap>
+    </>
   );
 });
 

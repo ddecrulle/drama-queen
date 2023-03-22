@@ -2,7 +2,7 @@ const loadQueenV2 = async () => {
   console.log('Loading queen');
   try {
     const queenUrl = new URL(document.currentScript.src).origin;
-    window.localStorage.setItem('QUEEN_URL', queenUrl);
+    window.localStorage.setItem('QUEEN_V2_URL', queenUrl);
 
     const manifest = await fetch(`${queenUrl}/asset-manifest.json`);
     const { entrypoints } = await manifest.json();

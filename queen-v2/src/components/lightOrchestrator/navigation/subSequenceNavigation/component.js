@@ -1,5 +1,3 @@
-import '@a11y/focus-trap';
-
 import {
   NEXT_FOCUS,
   PREVIOUS_FOCUS,
@@ -54,47 +52,45 @@ const SubsequenceNavigation = ({ sequence, close, setPage }) => {
   );
 
   return (
-    <focus-trap>
-      <div className="content">
-        <ButtonItemMenu ref={listRefs[0]} back onFocus={setFocus(0)} onClick={close}>
-          <span>{'\u3008'}</span>
-          {D.goBackNavigation}
-        </ButtonItemMenu>
-        <ButtonItemMenu
-          // eslint-disable-next-line jsx-a11y/no-autofocus
-          autoFocus
-          ref={listRefs[1]}
-          onClick={changePage(sequence)}
-          onFocus={setFocus(1)}
-        >
-          {sequence.label}
-        </ButtonItemMenu>
-        <nav role="navigation">
-          <ul>
-            {sequence.children.map((c, index) => {
-              const reachable = isReachable(c);
-              return (
-                <li key={c.lunaticId}>
-                  <ButtonItemMenu
-                    ref={listRefs[index + offset]}
-                    disabled={!reachable}
-                    onClick={changePage(c)}
-                    onFocus={setFocus(index + offset)}
-                  >
-                    {`${c.label}`}
-                  </ButtonItemMenu>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-        <KeyboardEventHandler
-          handleKeys={keysToHandle}
-          onKeyEvent={keyboardShortcut}
-          handleFocusableElements
-        />
-      </div>
-    </focus-trap>
+    <div className="content">
+      <ButtonItemMenu ref={listRefs[0]} back onFocus={setFocus(0)} onClick={close}>
+        <span>{'\u3008'}</span>
+        {D.goBackNavigation}
+      </ButtonItemMenu>
+      <ButtonItemMenu
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        autoFocus
+        ref={listRefs[1]}
+        onClick={changePage(sequence)}
+        onFocus={setFocus(1)}
+      >
+        {sequence.label}
+      </ButtonItemMenu>
+      <nav role="navigation">
+        <ul>
+          {sequence.children.map((c, index) => {
+            const reachable = isReachable(c);
+            return (
+              <li key={c.lunaticId}>
+                <ButtonItemMenu
+                  ref={listRefs[index + offset]}
+                  disabled={!reachable}
+                  onClick={changePage(c)}
+                  onFocus={setFocus(index + offset)}
+                >
+                  {`${c.label}`}
+                </ButtonItemMenu>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+      <KeyboardEventHandler
+        handleKeys={keysToHandle}
+        onKeyEvent={keyboardShortcut}
+        handleFocusableElements
+      />
+    </div>
   );
 };
 

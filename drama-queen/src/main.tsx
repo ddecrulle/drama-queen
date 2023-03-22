@@ -1,13 +1,9 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App'
-// import './index.css'
-// import { RouterProvider } from 'react-router-dom'
-// import { router } from './routes/root'
-import AppTest from '.'
+import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <AppTest />
+    <App />
   </React.StrictMode>,
 )

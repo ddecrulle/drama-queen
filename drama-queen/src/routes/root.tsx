@@ -1,24 +1,29 @@
-import {
-  createBrowserRouter,
-} from "react-router-dom";
-import DramaQueen from "../App";
+import { createBrowserRouter } from "react-router-dom";
+import Env from "../Env";
+import IntegratedMapping from "../QueenMapping/IntegratedMapping";
+import VisualisationMapping from "../QueenMapping/VisualisationMapping";
 
 // Dynamic import
 //const App = React.lazy(() => import('queen_v2/App'))
 // Static import 
-import App from 'queen_v2/App';
+//import App from 'queen_v2/App';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <DramaQueen />
-  },
-  {
-    path: "/queen/*",
+    path: "/queen/synchronize",
     element: <queen-app />
   },
   {
-    path: "/queen-v2/*",
-    element: <queen-v2-app />
+    path: "/queen/questionnaire/:surveyId/survey-unit/:surveyUnitId",
+    element: <IntegratedMapping />
   },
+  {
+    path: "/queen/visualize",
+    element: <VisualisationMapping />
+  },
+  {
+    path: "/env",
+    element: <Env />
+  },
+
 ])

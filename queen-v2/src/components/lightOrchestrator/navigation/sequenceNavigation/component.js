@@ -1,5 +1,3 @@
-import '@a11y/focus-trap';
-
 import {
   NEXT_FOCUS,
   PREVIOUS_FOCUS,
@@ -89,44 +87,42 @@ const SequenceNavigation = ({
   const classes = useStyles();
 
   return (
-    <focus-trap>
-      <div className="content">
-        <ButtonItemMenu back autoFocus ref={listRefs[0]} onFocus={setFocus(0)} onClick={closeMenu}>
-          <span>{'\u3008'}</span>
-          {D.goBackNavigation}
-        </ButtonItemMenu>
-        <div>
-          <div className={classes.title}>{title}</div>
-          <nav role="navigation">
-            <ul>
-              {components.map((c, index) => {
-                const reachable = c.reached && c.visible;
-                return (
-                  <li key={`breadcrumbEntry-${c.lunaticId}`}>
-                    <ButtonItemMenu
-                      ref={listRefs[index + offset]}
-                      autoFocus={index === 0}
-                      selected={currentFocusElementIndex === index + offset}
-                      disabled={!reachable}
-                      onClick={open(c)}
-                      onFocus={setFocus(index + offset)}
-                    >
-                      {c.label}
-                      <span>{`${c.children.length > 0 ? '\u3009' : ''} `}</span>
-                    </ButtonItemMenu>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-        </div>
-        <KeyboardEventHandler
-          handleKeys={keysToHandle}
-          onKeyEvent={keyboardShortcut}
-          handleFocusableElements
-        />
+    <div className="content">
+      <ButtonItemMenu back autoFocus ref={listRefs[0]} onFocus={setFocus(0)} onClick={closeMenu}>
+        <span>{'\u3008'}</span>
+        {D.goBackNavigation}
+      </ButtonItemMenu>
+      <div>
+        <div className={classes.title}>{title}</div>
+        <nav role="navigation">
+          <ul>
+            {components.map((c, index) => {
+              const reachable = c.reached && c.visible;
+              return (
+                <li key={`breadcrumbEntry-${c.lunaticId}`}>
+                  <ButtonItemMenu
+                    ref={listRefs[index + offset]}
+                    autoFocus={index === 0}
+                    selected={currentFocusElementIndex === index + offset}
+                    disabled={!reachable}
+                    onClick={open(c)}
+                    onFocus={setFocus(index + offset)}
+                  >
+                    {c.label}
+                    <span>{`${c.children.length > 0 ? '\u3009' : ''} `}</span>
+                  </ButtonItemMenu>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
       </div>
-    </focus-trap>
+      <KeyboardEventHandler
+        handleKeys={keysToHandle}
+        onKeyEvent={keyboardShortcut}
+        handleFocusableElements
+      />
+    </div>
   );
 };
 

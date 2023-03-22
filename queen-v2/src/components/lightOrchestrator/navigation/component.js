@@ -1,5 +1,3 @@
-import '@a11y/focus-trap';
-
 import {
   NEXT_FOCUS,
   PREVIOUS_FOCUS,
@@ -9,7 +7,7 @@ import {
 } from 'utils/navigation';
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { dependencies, version } from '../../../../package.json';
 
 import { Apps } from '@material-ui/icons';
@@ -128,12 +126,6 @@ const Navigation = ({
   };
   const classes = useStyles();
 
-  const [trapFocus, setTrapFocus] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => setTrapFocus(open), 250);
-  }, [open]);
-
   const rootRef = useRef();
 
   const menu = (
@@ -203,8 +195,7 @@ const Navigation = ({
   );
   return (
     <div ref={rootRef} className={className}>
-      {trapFocus && <focus-trap>{menu}</focus-trap>}
-      {!trapFocus && menu}
+      {menu}
       {open && (
         <>
           <div

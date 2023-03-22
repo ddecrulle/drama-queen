@@ -1,5 +1,3 @@
-import '@a11y/focus-trap';
-
 import {
   NEXT_FOCUS,
   PREVIOUS_FOCUS,
