@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import Env from "../Env";
-import IntegratedMapping from "../QueenMapping/IntegratedMapping";
-import VisualisationMapping from "../QueenMapping/VisualisationMapping";
+import Env from "pages/Env";
+import IntegratedMapping from "pages/QueenMapping/IntegratedMapping";
+import VisualisationMapping from "pages/QueenMapping/VisualisationMapping";
 
 // Dynamic import
 //const App = React.lazy(() => import('queen_v2/App'))

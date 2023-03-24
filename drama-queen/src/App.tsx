@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { RouterProvider } from 'react-router-dom'
-import { router } from './routes/root'
-import { getEnvVar } from './utils/env'
+import { router } from 'routes/root'
+import { getEnvVar } from 'utils/env'
 
 const injectBodyScript = (url: string) => {
   const script = document.createElement('script');

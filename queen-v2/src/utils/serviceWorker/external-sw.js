@@ -1,88 +1,11 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.1/workbox-sw.js');
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-undef */
 
-const { CacheableResponsePlugin } = workbox.cacheableResponse;
-const { registerRoute } = workbox.routing;
-const { NetworkFirst, CacheFirst } = workbox.strategies;
+const queenV2CacheName = 'queen-V2-cache';
+console.log('"Loading Queen V2 SW into another SW"');
 
-const getQueenUrlRegex = url => {
-  return url.replace('http', '^http').concat('/(.*)((.js)|(.png)|(.svg))');
-};
-
-const getQueenUrlRegexJson = url => {
-  return url.replace('http', '^http').concat('/(.*)(.json)');
-};
-
-const getQuestionnaireUrlRegex = () => '^http.*/api/questionnaire/(.){1,}';
-
-const getRequiredResourceUrlRegex = () =>
-  '^http.*/api/questionnaire/(.){1,}/required-nomenclatures';
-
-const getResourceUrlRegex = () => '^http.*/api/nomenclature/(.){1,}';
-
-const queenCacheName = 'queen-cache';
-console.log('"Loading Queen SW into another SW"');
-
-registerRoute(
-  new RegExp(getQueenUrlRegexJson(self._QUEEN_V2_URL)),
-  new NetworkFirst({
-    cacheName: queenCacheName,
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-    ],
-  })
-);
-
-registerRoute(
-  new RegExp(getQueenUrlRegex(self._QUEEN_V2_URL)),
-  new CacheFirst({
-    cacheName: queenCacheName,
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-    ],
-  })
-);
-
-registerRoute(
-  new RegExp(getQuestionnaireUrlRegex()),
-  new CacheFirst({
-    cacheName: 'queen-questionnaire',
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-    ],
-  })
-);
-
-registerRoute(
-  new RegExp(getRequiredResourceUrlRegex()),
-  new CacheFirst({
-    cacheName: 'queen-resource',
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-    ],
-  })
-);
-registerRoute(
-  new RegExp(getResourceUrlRegex()),
-  new CacheFirst({
-    cacheName: 'queen-resource',
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-    ],
-  })
-);
-
-const queenPrecacheController = async () => {
-  const cache = await caches.open(queenCacheName);
+const queenV2PrecacheController = async () => {
+  const cache = await caches.open(queenV2CacheName);
   const urlsToPrecache = self.__WB_MANIFEST.reduce(
     (_, { url }) => [..._, `${self._QUEEN_V2_URL}/${url}`],
     []
@@ -95,10 +18,10 @@ const queenPrecacheController = async () => {
 };
 
 self.addEventListener('install', event => {
-  console.log('QUEEN sw : installing ...');
-  event.waitUntil(queenPrecacheController());
+  console.log('QUEEN V2 sw : installing ...');
+  event.waitUntil(queenV2PrecacheController());
 });
 
 self.addEventListener('activate', event => {
-  console.log('QUEEN sw : activating ...');
+  console.log('QUEEN V2 sw : activating ...');
 });

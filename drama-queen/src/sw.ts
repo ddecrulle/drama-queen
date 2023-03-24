@@ -1,6 +1,6 @@
 import { precacheAndRoute } from "workbox-precaching";
 import { clientsClaim } from "workbox-core";
-//import { getEnvVar } from "./utils/env";
+//import { getEnvVar } from "utils/env";
 
 interface GlobalScope extends ServiceWorkerGlobalScope {
   _QUEEN_URL: string;

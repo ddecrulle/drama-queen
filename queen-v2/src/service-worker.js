@@ -69,7 +69,7 @@ const getUrlRegex = function (url) {
 const getUrlRegexJson = function (url) {
   return url.replace('http', '^http').concat('/(.*)(.json)');
 };
-const configurationCacheName = 'queen-cache';
+const configurationCacheName = 'queen-V2-cache';
 
 registerRoute(
   new RegExp(getUrlRegexJson(self.location.origin)),

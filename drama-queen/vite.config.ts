@@ -14,16 +14,17 @@ export default defineConfig(({ command, mode }) => {
       federation({
         name: "drama-queen",
         remotes: {
-          queen: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_URL"] || import.meta.env["VITE_QUEEN_URL"]) + "/entry.js")`,
-            externalType: "promise",
-          },
-          queen_v2: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || import.meta.env["VITE_QUEEN_V2_URL"]) + "/entry.js")`,
-            externalType: "promise",
-          },
+          //This is the right way of mfe with vite module federation (but legacy queens does not use)
+          // queen: {
+          //   external: `Promise.resolve((window?._env_?.["VITE_QUEEN_URL"] || import.meta.env["VITE_QUEEN_URL"]) + "/entry.js")`,
+          //   externalType: "promise",
+          // },
+          // queen_v2: {
+          //   external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || import.meta.env["VITE_QUEEN_V2_URL"]) + "/entry.js")`,
+          //   externalType: "promise",
+          // },
         },
-        // filename: "remoteEntry.js",
+        // filename: "entry.js",
         // exposes: {
         //   "./App": "./src/App.tsx",
         // },
