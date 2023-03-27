@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
     element: <queen-app />
   },
   {
-    path: "/queen/questionnaire/:surveyId/survey-unit/:surveyUnitId",
+    path: "/queen/questionnaire/:campaignId/survey-unit/:surveyUnitId",
     element: <IntegratedMapping />
   },
   {
