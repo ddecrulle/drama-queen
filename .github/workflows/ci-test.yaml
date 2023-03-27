@@ -51,7 +51,7 @@ jobs:
         with:
           context: drama-queen
           push: true
-          tags: ddecrulle/drama-queen:${{ github.head_ref }}
+          tags: ddecrulle/drama-queen:${{ github.ref_name }}
         # Queen Image
       - uses: actions/download-artifact@v3
         with:
@@ -62,7 +62,7 @@ jobs:
         with:
           context: ./queen
           push: true
-          tags: ddecrulle/queen:${{ github.head_ref }}
+          tags: ddecrulle/queen:${{ github.ref_name }}
       # Queen V2 Image
       - uses: actions/download-artifact@v3
         with:
@@ -72,4 +72,4 @@ jobs:
         with:
           context: ./queen-v2
           push: true
-          tags: ddecrulle/queen-v2:${{ github.head_ref }}
+          tags: ddecrulle/queen-v2:${{ github.ref_name }}
