@@ -15,7 +15,7 @@ console.log('"Loading Queen V2 SW into another SW"');
 registerRoute(
   new RegExp(getQueenV2UrlRegex(self._QUEEN_V2_URL)),
   new CacheFirst({
-    cacheName: queenCacheName,
+    cacheName: queenV2CacheName,
     plugins: [
       new CacheableResponsePlugin({
         statuses: [0, 200],
