@@ -15,6 +15,7 @@ const mount = ({
   routingStrategy?: RoutingStrategy;
 }) => {
 
+  console.log("Mount Drama Queen")
   injectLegacyEntryQueens();
 
   const router = createRouter({ strategy: routingStrategy, initialPathname });
