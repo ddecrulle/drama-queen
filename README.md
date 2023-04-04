@@ -3,7 +3,7 @@
 ## Getting Started
 
 ```
-cp .env.drama.sample.local ./drama-queen/.env.local
+cp .env.drama.sample ./drama-queen/.env.local
 yarn install
 yarn build
 # All project will be served (preview)
