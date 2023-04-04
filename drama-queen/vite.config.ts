@@ -1,39 +1,46 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import federation from "@originjs/vite-plugin-federation";
-import fs from "fs";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
-  const env = loadEnv(mode, process.cwd(), "");
   return {
     plugins: [
       react(),
       federation({
         name: "drama-queen",
-        remotes: {
-          queen: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_URL"] || import.meta.env["VITE_QUEEN_URL"]) + "/entry.js")`,
-            externalType: "promise",
-          },
-          queen_v2: {
-            external: `Promise.resolve((window?._env_?.["VITE_QUEEN_V2_URL"] || import.meta.env["VITE_QUEEN_V2_URL"]) + "/assets/remoteEntry.js")`,
-            externalType: "promise",
-          },
-        },
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //   "./App": "./src/App.tsx",
+        // remotes: {
+        //This is the right way of mfe with vite module federation (but legacy queens does not use)
+        // queen: {
+        //   external: `Promise.resolve((window?._env_?.["VITE_QUEEN_URL"] || import.meta.env["VITE_QUEEN_URL"]) + "/entry.js")`,
+        //   externalType: "promise",
         // },
-        shared: ["react", "react-dom"],
+        // },
+        filename: "remoteEntry.js",
+        exposes: {
+          "./DramaIndex": "./src/bootstrap.tsx",
+        },
+        shared: ["react", "react-dom", "react-router-dom"],
       }),
       tsconfigPaths(),
       VitePWA({
+        //Generate the external service worker for pearl
+        injectRegister: false,
         strategies: "injectManifest",
+        // injectManifest: {
+        //   injectionPoint: undefined,
+        // },
+        manifest: false,
         srcDir: "src",
         filename: "sw-pearl.js",
+      }),
+      VitePWA({
+        injectRegister: "auto",
+        strategies: "injectManifest",
+        srcDir: "src",
+        filename: "sw.js",
         manifest: {
           name: "Drama Queen",
           short_name: "draqueen",
@@ -89,10 +96,10 @@ export default defineConfig(({ command, mode }) => {
       }),
     ],
     build: {
-      modulePreload: false,
+      //   modulePreload: false,
       target: "esnext",
-      minify: false,
-      cssCodeSplit: false,
+      minify: true,
+      //   cssCodeSplit: false,
     },
   };
 });

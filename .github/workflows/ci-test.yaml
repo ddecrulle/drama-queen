@@ -2,7 +2,8 @@ name: ci-test
 on:
   push:
     branches:
-      - pwa-test
+      - "**"
+      - "!main"
 
 jobs:
   build:
@@ -13,7 +14,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      #- run: yarn test
       - run: yarn
       - run: yarn build
       - uses: actions/upload-artifact@v3
@@ -22,12 +22,12 @@ jobs:
           path: drama-queen/dist
       - uses: actions/upload-artifact@v3
         with:
-          name: queen-cra
-          path: queen-cra/build
+          name: queen
+          path: queen/build
       - uses: actions/upload-artifact@v3
         with:
           name: queen-v2
-          path: queen-v2/dist
+          path: queen-v2/build
   docker:
     needs: build
     environment: Main
@@ -51,4 +51,25 @@ jobs:
         with:
           context: drama-queen
           push: true
-          tags: ddecrulle/drama-queen:cra-queen
+          tags: ddecrulle/drama-queen:${{ github.ref_name }}
+        # Queen Image
+      - uses: actions/download-artifact@v3
+        with:
+          name: queen
+          path: queen/build
+
+      - uses: docker/build-push-action@v4
+        with:
+          context: ./queen
+          push: true
+          tags: ddecrulle/queen:${{ github.ref_name }}
+      # Queen V2 Image
+      - uses: actions/download-artifact@v3
+        with:
+          name: queen-v2
+          path: queen-v2/build
+      - uses: docker/build-push-action@v4
+        with:
+          context: ./queen-v2
+          push: true
+          tags: ddecrulle/queen-v2:${{ github.ref_name }}
