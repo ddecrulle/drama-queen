@@ -32,7 +32,6 @@ const Navigation = ({
   definitiveQuit,
   currentPage,
 }) => {
-  console.log('navigation rerenders');
   const [open, setOpen] = useState(false);
   const [surveyOpen, setSurveyOpen] = useState(false);
   const [stopOpen, setStopOpen] = useState(false);
