@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
     element: <IntegratedMapping />
   },
   {
-    path: "/queen/*",
+    path: "/queen/visualize",
     element: <VisualisationMapping />
   },
   {
