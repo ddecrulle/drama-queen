@@ -16,6 +16,7 @@
     "dev:drama-queen": "lerna run dev --scope 'drama-queen'",
     "dev:queen-cra": "lerna run start --scope 'queen'",
     "dev:queen-v2": "lerna run start --scope 'queen-v2'",
+    "bootstrap": "lerna bootstrap --hoist",
     "stop": "kill-port --port 5000,5001,5002"
   },
   "devDependencies": {

@@ -1,6 +1,9 @@
-name: ci-test
+name: ci
 on:
   push:
+    branches:
+      - "**"
+  pull_request:
     branches:
       - "**"
 
@@ -13,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - run: yarn
+      - run: yarn bootstrap
       - run: yarn build
       - uses: actions/upload-artifact@v3
         with:
