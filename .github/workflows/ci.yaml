@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - run: yarn bootstrap
+      - run: yarn
       - run: yarn build
       - uses: actions/upload-artifact@v3
         with:
