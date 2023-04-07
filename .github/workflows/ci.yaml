@@ -24,8 +24,8 @@ jobs:
           VITE_QUEEN_V2_URL: ${{ secrets.VITE_QUEEN_V2_URL }}
         run: |
           cp drama-queen/.env drama-queen/.env.production
-          sed -i "s#VITE_QUEEN_URL=#VITE_QUEEN_URL=${VITE_QUEEN_URL}#" .env.production
-          sed -i "s#VITE_QUEEN_V2_URL=#VITE_QUEEN_V2_URL=${VITE_QUEEN_V2_URL}#" .env.production
+          sed -i "s#VITE_QUEEN_URL=#VITE_QUEEN_URL=${VITE_QUEEN_URL}#" drama-queen/.env.production
+          sed -i "s#VITE_QUEEN_V2_URL=#VITE_QUEEN_V2_URL=${VITE_QUEEN_V2_URL}#" drama-queen/.env.production
       - run: yarn build
       - uses: actions/upload-artifact@v3
         with:
