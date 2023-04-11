@@ -60,13 +60,13 @@ jobs:
       - name: check if one of version has been updated
         id: step1
         run: |
-          IS_UPGRADED_VERSION=git diff HEAD^ HEAD package.json | grep -q '\"version\":';
+          IS_UPGRADED_VERSION=git diff HEAD^ HEAD package.json | grep -q '\"version\":' && echo true || echo false;
           VERSION=grep '\"version\":' package.json | sed -E 's/.*"version": "([^"]+)".*/\1/'
-          IS_DRAMA_UPGRADED_VERSION=git diff HEAD^ HEAD drama-queen/package.json | grep -q '\"version\":';
+          IS_DRAMA_UPGRADED_VERSION=git diff HEAD^ HEAD drama-queen/package.json | grep -q '\"version\":'  && echo true || echo false;
           DRAMA_VERSION=grep '\"version\":' drama-queen/package.json | sed -E 's/.*"version": "([^"]+)".*/\1/'
-          IS_QUEEN_UPGRADED_VERSION=git diff HEAD^ HEAD queen/package.json | grep -q '\"version\":';
+          IS_QUEEN_UPGRADED_VERSION=git diff HEAD^ HEAD queen/package.json | grep -q '\"version\":' && echo true || echo false;
           QUEEN_VERSION=grep '\"version\":' queen/package.json | sed -E 's/.*"version": "([^"]+)".*/\1/'
-          IS_QUEEN_V2_UPGRADED_VERSION=git diff HEAD^ HEAD queen-v2/package.json | grep -q '\"version\":';
+          IS_QUEEN_V2_UPGRADED_VERSION=git diff HEAD^ HEAD queen-v2/package.json | grep -q '\"version\":' && echo true || echo false;
           QUEEN_V2_VERSION=grep '\"version\":' queen-v2/package.json | sed -E 's/.*"version": "([^"]+)".*/\1/'
 
   docker_drama:
