@@ -56,6 +56,7 @@ jobs:
       is_queen_v2_upgraded_version: ${{ steps.step1.outputs.is_upgraded_queen_v2_version}}
       queen_v2_version: ${{steps.step1.outputs.version}}
     steps:
+      - uses: actions/checkout@v3
       - name: check if one of version has been updated
         id: step1
         run: |
@@ -71,7 +72,7 @@ jobs:
   docker_drama:
     needs: check_if_version_upgraded
     environment: Main
-    if: needs.check_if_version_upgraded.outputs.is_drama_upgraded_version 
+    if: needs.check_if_version_upgraded.outputs.is_drama_upgraded_version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -94,7 +95,7 @@ jobs:
   docker_queen:
     needs: check_if_version_upgraded
     environment: Main
-    if: needs.check_if_version_upgraded.outputs.is_queen_upgraded_version 
+    if: needs.check_if_version_upgraded.outputs.is_queen_upgraded_version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
