@@ -47,14 +47,14 @@ jobs:
       github.event_name == 'push' && 
       github.ref_name == 'main'
     outputs:
-      is_upgraded_version: ${{ steps.check.outputs.changed}}
-      version: ${{steps.check.outputs.version}}
-      is_drama_upgraded_version: ${{ steps.check-drama.outputs.changed}}
-      drama_version: ${{steps.check-drama.outputs.version}}
-      is_queen_upgraded_version: ${{ steps.check-queen.outputs.changed}}
-      queen_version: ${{steps.check-queen.outputs.version}}
-      is_queen_v2_upgraded_version: ${{ steps.check-queen-v2.outputs.changed}}
-      queen_v2_version: ${{steps.check-queen-v2.outputs.version}}
+      is_upgraded_version: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+      is_drama_upgraded_version: ${{ steps.check-drama.outputs.changed }}
+      drama_version: ${{ steps.check-drama.outputs.version }}
+      is_queen_upgraded_version: ${{ steps.check-queen.outputs.changed }}
+      queen_version: ${{ steps.check-queen.outputs.version }}
+      is_queen_v2_upgraded_version: ${{ steps.check-queen-v2.outputs.changed }}
+      queen_v2_version: ${{ steps.check-queen-v2.outputs.version }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
