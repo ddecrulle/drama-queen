@@ -50,11 +50,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log when changed
-        if: needs.check_if_version_upgraded.outputs.is_upgraded_version == 'true'
+        if: needs.check_if_version_upgraded.outputs.is_upgraded_version
         run: 'echo "Version change found in commit ${{ needs.check_if_version_upgraded.outputs.commit }}! New version: ${{ needs.check_if_version_upgraded.outputs.version }} (${{ needs.check_if_version_upgraded.outputs.type }})"'
 
       - name: Log when unchanged
-        if: needs.check_if_version_upgraded.outputs.is_upgraded_version == 'false'
+        if: needs.check_if_version_upgraded.outputs.is_upgraded_version
         run: 'echo "No version change :/"'
 
 
