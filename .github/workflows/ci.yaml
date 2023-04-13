@@ -7,9 +7,6 @@ on:
 jobs:
   check_if_version_upgraded:
     runs-on: ubuntu-latest
-    if: |
-      github.event_name == 'push' && 
-      github.ref_name == 'main'
     outputs:
       is_upgraded_version: ${{ steps.check.outputs.changed }}
       version: ${{ steps.check.outputs.version }}
