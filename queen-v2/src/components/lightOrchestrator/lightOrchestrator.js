@@ -1,16 +1,15 @@
 import * as lunatic from '@inseefr/lunatic';
 
-import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useAsyncValue, useLunaticFetcher } from 'utils/hook';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
+import D from 'i18n';
+import { componentHasResponse } from 'utils/components/deduceState';
+import { LoopPanel } from './LoopPanel';
 import ButtonContinue from './buttons/continue/index';
 import { ComponentDisplayer } from './componentDisplayer';
-import D from 'i18n';
 import Header from './header';
-import { LoopPanel } from './LoopPanel';
-import NavBar from './navBar';
-import { componentHasResponse } from 'utils/components/deduceState';
 import { useStyles } from './lightOrchestrator.style';
+import NavBar from './navBar';
 
 function onLogChange(response, value, args) {
   console.log('onChange', { response, value, args });
@@ -32,7 +31,7 @@ function LightOrchestrator({
   readonly,
   pagination,
   source,
-  suggesters,
+  getReferentiel,
   missing = true,
   shortcut = true,
   autoSuggesterLoading,
@@ -44,8 +43,6 @@ function LightOrchestrator({
   definitiveQuit,
 }) {
   const { data } = surveyUnit;
-  const { lunaticFetcher } = useLunaticFetcher();
-  const suggesterFetcher = useAsyncValue(lunaticFetcher);
   const classes = useStyles();
   const lunaticStateRef = useRef();
 
@@ -87,8 +84,7 @@ function LightOrchestrator({
     onChange: customHandleChange,
     preferences,
     autoSuggesterLoading,
-    suggesters,
-    suggesterFetcher,
+    getReferentiel,
     missing,
     shortcut,
     missingStrategy,
