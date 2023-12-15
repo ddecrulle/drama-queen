@@ -1,5 +1,7 @@
 # Drama Queen !
 
+It's a POC repository, code moved on inseefr/Drama-Queen
+
 ## Getting Started
 
 ```
